@@ -1,0 +1,145 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#game-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    text-align: center;
+    color: #4a4a4a;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#players {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+.player {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.player:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.explosion-button {
+    font-size: 28px;
+    padding: 15px 30px;
+    margin: 20px auto;
+    cursor: pointer;
+    display: block;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.explosion-button:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.card {
+    background-color: #4ecdc4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.card:hover {
+    background-color: #45b7aa;
+    transform: translateY(-2px);
+}
+
+#game-info {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+    color: #4a4a4a;
+}
+
+#game-info p {
+    margin: 10px 0;
+}
+
+#game-info span {
+    font-weight: bold;
+    color: #764ba2;
+}
+
+.current-player {
+    box-shadow: 0 0 25px #ffd700;
+    background-color: gold;
+    animation: shine 1.5s infinite alternate;
+}
+
+.player.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+}
+
+@keyframes shine {
+    from {
+        box-shadow: 0 0 25px #ffd700;
+    }
+
+    to {
+        box-shadow: 0 0 80px #ffd700;
+    }
+}
